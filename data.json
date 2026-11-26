@@ -1,0 +1,171 @@
+{
+ "theme": "sakura",
+ "cities": [
+  {
+   "id": "seoul",
+   "name": "Сеул",
+   "ko": "서울",
+   "order": 1
+  },
+  {
+   "id": "busan",
+   "name": "Пусан",
+   "ko": "부산",
+   "order": 2
+  },
+  {
+   "id": "gyeongju",
+   "name": "Кёнджу",
+   "ko": "경주",
+   "order": 3
+  },
+  {
+   "id": "inbox",
+   "name": "Разобрать",
+   "ko": "+",
+   "order": 99
+  }
+ ],
+ "places": [
+  {
+   "id": "s1",
+   "city": "seoul",
+   "tags": [
+    "place"
+   ],
+   "name": "Дворец Кёнбоккун",
+   "nameKo": "경복궁",
+   "address": "서울 종로구 사직로 161",
+   "district": "Чонно",
+   "what": "Главный королевский дворец династии Чосон.",
+   "why": "Смена караула у ворот и прогулка в ханбоке: в нём вход бесплатный.",
+   "rating": 0,
+   "price": 0,
+   "source": "",
+   "sourceLabel": "пример от Claude",
+   "photos": [],
+   "visited": false,
+   "created": 6
+  },
+  {
+   "id": "s2",
+   "city": "seoul",
+   "tags": [
+    "food"
+   ],
+   "name": "Рынок Кванчжан",
+   "nameKo": "광장시장",
+   "address": "서울 종로구 창경궁로 88",
+   "district": "Чонно",
+   "what": "Старый крытый рынок с рядами уличной еды.",
+   "why": "Попробовать пиндэтток и мини-кимбап прямо у прилавка.",
+   "rating": 0,
+   "price": 0,
+   "source": "",
+   "sourceLabel": "пример от Claude",
+   "photos": [],
+   "visited": false,
+   "created": 5
+  },
+  {
+   "id": "s3",
+   "city": "seoul",
+   "tags": [
+    "photo"
+   ],
+   "name": "Башня Намсан",
+   "nameKo": "N서울타워",
+   "address": "서울 용산구 남산공원길 105",
+   "district": "Йонсан",
+   "what": "Телебашня на горе Намсан со смотровой площадкой.",
+   "why": "Вид на весь Сеул в сумерках, когда зажигаются огни.",
+   "rating": 0,
+   "price": 0,
+   "source": "",
+   "sourceLabel": "пример от Claude",
+   "photos": [],
+   "visited": false,
+   "created": 4
+  },
+  {
+   "id": "s4",
+   "city": "seoul",
+   "tags": [
+    "photo"
+   ],
+   "name": "Деревня Букчон",
+   "nameKo": "북촌한옥마을",
+   "address": "서울 종로구 계동길 37",
+   "district": "Чонно",
+   "what": "Квартал традиционных домов ханок на холме.",
+   "why": "Узкие улочки с черепичными крышами и видом на город.",
+   "rating": 0,
+   "price": 0,
+   "source": "",
+   "sourceLabel": "пример от Claude",
+   "photos": [],
+   "visited": false,
+   "created": 3
+  },
+  {
+   "id": "b1",
+   "city": "busan",
+   "tags": [
+    "photo"
+   ],
+   "name": "Деревня Камчхон",
+   "nameKo": "감천문화마을",
+   "address": "부산 사하구 감내2로 203",
+   "district": "Саха",
+   "what": "Разноцветные дома на склоне холма, арт-объекты.",
+   "why": "Самые узнаваемые фото Пусана.",
+   "rating": 0,
+   "price": 0,
+   "source": "",
+   "sourceLabel": "пример от Claude",
+   "photos": [],
+   "visited": false,
+   "created": 2
+  },
+  {
+   "id": "b2",
+   "city": "busan",
+   "tags": [
+    "food"
+   ],
+   "name": "Рынок Чагальчхи",
+   "nameKo": "자갈치시장",
+   "address": "부산 중구 자갈치해안로 52",
+   "district": "Чунгу",
+   "what": "Крупнейший рыбный рынок Кореи.",
+   "why": "Выбрать морепродукты внизу и попросить приготовить наверху.",
+   "rating": 0,
+   "price": 0,
+   "source": "",
+   "sourceLabel": "пример от Claude",
+   "photos": [],
+   "visited": false,
+   "created": 1
+  },
+  {
+   "id": "g1",
+   "city": "gyeongju",
+   "tags": [
+    "place"
+   ],
+   "name": "Храм Пульгукса",
+   "nameKo": "불국사",
+   "address": "경북 경주시 불국로 385",
+   "district": "",
+   "what": "Буддийский храм эпохи Силла, объект ЮНЕСКО.",
+   "why": "Каменные лестницы-мосты и сакура весной.",
+   "rating": 0,
+   "price": 0,
+   "source": "",
+   "sourceLabel": "пример от Claude",
+   "photos": [],
+   "visited": false,
+   "created": 0
+  }
+ ]
+}

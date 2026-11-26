@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru" data-g="sakura">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Корея: сохранёнки</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--grad:linear-gradient(160deg,#ffdbe8 0%,#fff4ee 55%,#ffe6f1 100%);--accent:#ff4f86;--accentd:#d62f66;--ink:#2a1630;--soft:#7a6580;--card:rgba(255,255,255,.86);--line:rgba(42,22,48,.09);--tint:rgba(255,255,255,.7);--sheet:#fffafc}
+[data-g=namsan]{--grad:linear-gradient(170deg,#d9dcff 0%,#efe3ff 50%,#ffe3ef 100%);--accent:#6a5cff;--accentd:#4b3fd1;--ink:#1e1a3a;--soft:#676183;--line:rgba(30,26,58,.1);--sheet:#fbfaff}
+[data-g=jeju]{--grad:linear-gradient(165deg,#cdf3ec 0%,#eefbf6 50%,#dcecff 100%);--accent:#12a38a;--accentd:#0c7a67;--ink:#0f2c2a;--soft:#557371;--line:rgba(15,44,42,.1);--sheet:#f8fffd}
+[data-g=sunset]{--grad:linear-gradient(160deg,#ffe0c9 0%,#fff1dc 50%,#ffd9e1 100%);--accent:#ff7a45;--accentd:#c9531f;--ink:#33190f;--soft:#7f5f52;--line:rgba(51,25,15,.1);--sheet:#fffaf6}
+[data-g=night]{color-scheme:dark;--grad:linear-gradient(170deg,#170f33 0%,#2a1240 50%,#3d1231 100%);--accent:#ff6fa5;--accentd:#ff9cc0;--ink:#f6eef8;--soft:#c3b3cc;--card:rgba(255,255,255,.08);--line:rgba(255,255,255,.13);--tint:rgba(255,255,255,.08);--sheet:#22163a}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;color:var(--ink);font:16px/1.55 Manrope,system-ui,sans-serif;overflow-x:clip;background:transparent}
+body::before{content:"";position:fixed;inset:0;background:var(--grad);z-index:-1}
+.ko{font-family:"Noto Sans KR",Manrope,sans-serif}
+h1,h2,h3{font-family:Unbounded,Manrope,sans-serif;font-weight:700;line-height:1.08;margin:0;text-wrap:balance}
+h1{font-size:clamp(28px,7vw,46px)}h2{font-size:clamp(22px,5vw,32px)}
+.wrap{max-width:1240px;margin:0 auto;padding:clamp(20px,4vw,44px) max(4vw,16px) 110px}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none;min-height:44px;border-radius:999px;padding:0 18px}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn{background:var(--accent);color:#fff;font-weight:700}
+.ghost{border:1px solid var(--line);background:var(--tint)}
+.icon{width:46px;padding:0;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);background:var(--tint)}
+.icon svg{width:22px;height:22px}
+.top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:18px}
+.tools{display:flex;gap:8px;flex:none}
+.sub{color:var(--soft);margin:6px 0 0}
+.search{width:100%;height:48px;border-radius:999px;border:1px solid var(--line);background:var(--card);padding:0 20px;font-size:16px;margin-bottom:22px}
+.albums{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));gap:14px}
+.album{text-align:left;padding:8px;border-radius:22px;background:var(--card);border:1px solid var(--line);display:block;text-decoration:none;color:inherit;transition:transform .2s}
+.album:hover{transform:translateY(-3px)}
+.cov{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:3px;aspect-ratio:1/1;border-radius:16px;overflow:hidden;margin-bottom:8px}
+.cov>*{background:var(--tint)}.cov>:first-child{grid-row:1/3}
+.cov.one{display:block}.cov img{width:100%;height:100%;object-fit:cover;display:block}
+.cov.empty{display:flex;background:var(--tint);color:var(--accentd);font-size:clamp(30px,8vw,46px);font-weight:700;align-items:center;justify-content:center}
+.album b{font-family:Unbounded,sans-serif;font-size:16px;display:block;padding:0 4px}
+.album span{color:var(--soft);font-size:13px;padding:0 4px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 14px;margin-bottom:6px}
+.chip{flex:none;min-height:40px;border:1px solid var(--line);background:var(--card);padding:0 14px;font-size:14px;font-weight:500}
+.chip.on{background:var(--ink);color:var(--sheet);border-color:var(--ink)}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:8px;padding:3px 8px;margin:0 4px 4px 0;background:color-mix(in srgb,var(--c) 20%,var(--sheet));color:color-mix(in srgb,var(--c) 72%,var(--ink))}
+.wall{columns:2 150px;column-gap:12px}
+@media(min-width:700px){.wall{columns:3 200px}}@media(min-width:1050px){.wall{columns:4 220px}}
+.pin{break-inside:avoid;margin:0 0 12px;display:block;width:100%;text-align:left;padding:0;border-radius:18px;background:var(--card);border:1px solid var(--line);overflow:hidden;height:auto}
+.pin img{display:block;width:100%;height:auto}
+.ph{display:flex;align-items:center;justify-content:center;padding:26px 12px;font-size:22px;font-weight:700;text-align:center;background:color-mix(in srgb,var(--c,var(--accent)) 18%,var(--sheet));color:color-mix(in srgb,var(--c,var(--accent)) 75%,var(--ink))}
+.pin .in{padding:10px 12px 12px}
+.pin h3{font-size:15px;margin:2px 0 3px}
+.pin p{margin:0;font-size:13px;color:var(--soft);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.stars{color:#f2a900;letter-spacing:1px;font-size:13px}
+.seen{float:right;font-size:12px;color:var(--accentd);font-weight:700}
+.many{position:absolute;right:8px;top:8px;background:rgba(0,0,0,.5);color:#fff;font-size:11px;font-weight:700;border-radius:8px;padding:2px 7px}
+.pin .pic{position:relative}
+.empty-s{padding:40px 20px;border:1.5px dashed var(--line);border-radius:22px;text-align:center;color:var(--soft);background:var(--tint)}
+.fab{position:fixed;right:max(16px,4vw);bottom:max(18px,env(safe-area-inset-bottom));box-shadow:0 8px 24px color-mix(in srgb,var(--accent) 40%,transparent);min-height:56px;padding:0 24px;z-index:5}
+.veil{position:fixed;inset:0;background:rgba(20,8,24,.5);z-index:10;display:flex;align-items:flex-end;justify-content:center}
+.veil[hidden]{display:none}
+.sheet{background:var(--sheet);width:min(640px,100%);max-height:92vh;overflow-y:auto;border-radius:26px 26px 0 0;padding:0 0 28px}
+@media(min-width:700px){.veil{align-items:center}.sheet{border-radius:26px}}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.slides::-webkit-scrollbar{display:none}
+.slides img{flex:0 0 100%;width:100%;height:min(55vh,420px);object-fit:cover;scroll-snap-align:start;display:block}
+.dots{display:flex;justify-content:center;gap:6px;margin-top:-22px;position:relative;padding-bottom:10px}
+.dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55)}.dots i.on{background:#fff;width:18px;border-radius:4px}
+.sheet .body{padding:18px 20px 0}
+.sheet h2{margin:8px 0 2px}
+.field{margin:16px 0 0}
+.lbl{font-size:13px;color:var(--soft);font-weight:700;margin-bottom:4px}
+.addr{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--tint);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.addr .ko{flex:1 1 180px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:16px}
+.facts div{background:var(--tint);border:1px solid var(--line);border-radius:14px;padding:8px 12px;font-size:14px}
+.facts b{display:block;font-size:12px;color:var(--soft)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.row a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--tint);text-decoration:none;color:inherit;font-weight:500;font-size:14px}
+.lnk a{color:var(--accentd);overflow-wrap:anywhere}
+.close{position:sticky;top:0;display:flex;justify-content:flex-end;padding:10px 10px 0;margin-bottom:-54px;z-index:2}
+.close button{background:var(--sheet);width:44px;padding:0;font-size:22px}
+form label,.flab{display:block;margin-top:14px;font-size:13px;font-weight:700;color:var(--soft)}
+form input,form select,form textarea{display:block;width:100%;margin-top:4px;border:1px solid var(--line);background:var(--tint);border-radius:12px;padding:11px 12px;font-size:16px}
+form input[type=file]{padding:9px}
+form textarea{min-height:68px;resize:vertical}
+.pick{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.pick button{min-height:40px;font-size:14px;font-weight:700;border:1px solid var(--line);background:var(--tint);padding:0 14px}
+.pick button.on{background:var(--ink);color:var(--sheet)}
+.pick .tg.on{background:color-mix(in srgb,var(--c) 25%,var(--sheet));color:color-mix(in srgb,var(--c) 75%,var(--ink));outline:2px solid var(--c)}
+.starpick button{font-size:26px;padding:0 6px;color:#f2a900;min-height:44px}
+.thumbs{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.thumbs div{position:relative;width:72px;height:72px}
+.thumbs img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+.thumbs button{position:absolute;top:-6px;right:-6px;min-height:26px;width:26px;padding:0;background:var(--ink);color:var(--sheet);font-size:15px}
+.err{color:var(--accentd);font-size:14px;min-height:20px;margin-top:8px;font-weight:700}
+.back{margin:0 0 10px -10px;padding:0 12px;font-weight:700;color:var(--soft)}
+.themes{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin-top:6px}
+.themes button{height:auto;padding:0;border-radius:16px;overflow:hidden;border:2px solid transparent;text-align:left;background:var(--tint)}
+.themes button.on{border-color:var(--accent)}
+.themes i{display:block;height:54px}.themes span{display:block;padding:6px 8px;font-size:13px;font-weight:700}
+.list{display:flex;flex-direction:column;gap:8px}
+.trow{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:8px 10px 8px 14px}
+.trow .nm{flex:1 1 60px;font-weight:700}.trow button{min-height:38px;padding:0 12px;font-size:14px}.trow .ct{color:var(--soft);font-size:13px}
+.dot{width:16px;height:16px;border-radius:50%;background:var(--c);flex:none}
+.swatches{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.swatches button{width:40px;min-height:40px;padding:0;background:var(--c);border:3px solid transparent}
+.swatches button.on{border-color:var(--ink)}
+.cityhero{border-radius:24px;overflow:hidden;margin:0 0 16px;aspect-ratio:16/9;max-height:420px;background:var(--tint)}.cityhero img{width:100%;height:100%;object-fit:cover;display:block}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:4px 14px 14px;margin-bottom:16px}
+@media(prefers-reduced-motion:reduce){.album{transition:none}}
+</style>
+</head>
+<body>
+<main class="wrap" id="app"><p>Загружаю…</p></main>
+<button class="btn fab" id="fab" type="button" hidden></button>
+<div class="veil" id="veil" hidden><div class="sheet" id="sheet" role="dialog" aria-modal="true"></div></div>
+<input type="file" id="imp" accept=".json,application/json" hidden>
+
+<script id="seed" type="application/json">{"theme": "sakura", "cities": [{"id": "seoul", "name": "Сеул", "ko": "서울", "order": 1}, {"id": "busan", "name": "Пусан", "ko": "부산", "order": 2}, {"id": "gyeongju", "name": "Кёнджу", "ko": "경주", "order": 3}, {"id": "inbox", "name": "Разобрать", "ko": "+", "order": 99}], "places": [{"id": "s1", "city": "seoul", "tags": ["place"], "name": "Дворец Кёнбоккун", "nameKo": "경복궁", "address": "서울 종로구 사직로 161", "district": "Чонно", "what": "Главный королевский дворец династии Чосон.", "why": "Смена караула у ворот и прогулка в ханбоке: в нём вход бесплатный.", "rating": 0, "price": 0, "source": "", "sourceLabel": "пример от Claude", "photos": [], "visited": false, "created": 6}, {"id": "s2", "city": "seoul", "tags": ["food"], "name": "Рынок Кванчжан", "nameKo": "광장시장", "address": "서울 종로구 창경궁로 88", "district": "Чонно", "what": "Старый крытый рынок с рядами уличной еды.", "why": "Попробовать пиндэтток и мини-кимбап прямо у прилавка.", "rating": 0, "price": 0, "source": "", "sourceLabel": "пример от Claude", "photos": [], "visited": false, "created": 5}, {"id": "s3", "city": "seoul", "tags": ["photo"], "name": "Башня Намсан", "nameKo": "N서울타워", "address": "서울 용산구 남산공원길 105", "district": "Йонсан", "what": "Телебашня на горе Намсан со смотровой площадкой.", "why": "Вид на весь Сеул в сумерках, когда зажигаются огни.", "rating": 0, "price": 0, "source": "", "sourceLabel": "пример от Claude", "photos": [], "visited": false, "created": 4}, {"id": "s4", "city": "seoul", "tags": ["photo"], "name": "Деревня Букчон", "nameKo": "북촌한옥마을", "address": "서울 종로구 계동길 37", "district": "Чонно", "what": "Квартал традиционных домов ханок на холме.", "why": "Узкие улочки с черепичными крышами и видом на город.", "rating": 0, "price": 0, "source": "", "sourceLabel": "пример от Claude", "photos": [], "visited": false, "created": 3}, {"id": "b1", "city": "busan", "tags": ["photo"], "name": "Деревня Камчхон", "nameKo": "감천문화마을", "address": "부산 사하구 감내2로 203", "district": "Саха", "what": "Разноцветные дома на склоне холма, арт-объекты.", "why": "Самые узнаваемые фото Пусана.", "rating": 0, "price": 0, "source": "", "sourceLabel": "пример от Claude", "photos": [], "visited": false, "created": 2}, {"id": "b2", "city": "busan", "tags": ["food"], "name": "Рынок Чагальчхи", "nameKo": "자갈치시장", "address": "부산 중구 자갈치해안로 52", "district": "Чунгу", "what": "Крупнейший рыбный рынок Кореи.", "why": "Выбрать морепродукты внизу и попросить приготовить наверху.", "rating": 0, "price": 0, "source": "", "sourceLabel": "пример от Claude", "photos": [], "visited": false, "created": 1}, {"id": "g1", "city": "gyeongju", "tags": ["place"], "name": "Храм Пульгукса", "nameKo": "불국사", "address": "경북 경주시 불국로 385", "district": "", "what": "Буддийский храм эпохи Силла, объект ЮНЕСКО.", "why": "Каменные лестницы-мосты и сакура весной.", "rating": 0, "price": 0, "source": "", "sourceLabel": "пример от Claude", "photos": [], "visited": false, "created": 0}]}</script>
+<script>
+{
+const COLORS={violet:"#6c5ce7",orange:"#f0782d",magenta:"#d63a8a",gold:"#d9a514",teal:"#12a38a",blue:"#2f80ed",red:"#e5484d",green:"#3aa356",gray:"#8a8090"};
+const THEMES=[["sakura","Сакура"],["namsan","Сумерки Намсан"],["jeju","Море Чеджу"],["sunset","Закат Пусана"],["night","Ночной Сеул"]];
+const GR={sakura:"linear-gradient(160deg,#ffdbe8,#fff4ee,#ffe6f1)",namsan:"linear-gradient(170deg,#d9dcff,#efe3ff,#ffe3ef)",jeju:"linear-gradient(165deg,#cdf3ec,#eefbf6,#dcecff)",sunset:"linear-gradient(160deg,#ffe0c9,#fff1dc,#ffd9e1)",night:"linear-gradient(170deg,#170f33,#2a1240,#3d1231)"};
+const DEF_TAGS=[{id:"place",name:"Место",color:"violet"},{id:"food",name:"Еда",color:"orange"},{id:"shop",name:"Шопинг",color:"magenta"},{id:"souv",name:"Сувениры",color:"gold"},{id:"photo",name:"Фотоспот",color:"teal"}];
+const PRICE=["не указана","₩ дёшево","₩₩ средне","₩₩₩ дорого","₩₩₩₩ очень дорого"];
+const GEAR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>';
+const TAGI='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg>';
+
+const MODE="view",VIEW=MODE==="view";
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const okUrl=u=>typeof u==="string"&&/^https?:\/\//.test(u)?u:"";
+const okImg=u=>typeof u==="string"&&(/^data:image\/(jpeg|png|webp|gif);base64,[A-Za-z0-9+/=]+$/.test(u)||/^https?:\/\/[^\s"'<>]+$/.test(u)||/^[\w\-./]+\.(jpe?g|png|webp|gif|avif)$/i.test(u))?u:"";
+const pics=p=>(p.photos||[]).filter(okImg);
+const col=c=>COLORS[c]||COLORS.gray;
+const app=document.getElementById("app"),veil=document.getElementById("veil"),sheet=document.getElementById("sheet"),fab=document.getElementById("fab"),imp=document.getElementById("imp");
+let S={tags:[],cities:[],places:[],theme:"sakura"},filter="all",query="",slideT=null,draft=null;
+
+const store={db:null,
+  async open(){if(this.db)return this.db;this.db=await new Promise((res,rej)=>{const r=indexedDB.open("korea-saves",1);r.onupgradeneeded=()=>r.result.createObjectStore("kv");r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)});return this.db},
+  async get(k){try{const d=await this.open();return await new Promise((res,rej)=>{const q=d.transaction("kv").objectStore("kv").get(k);q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)})}catch(_){try{return JSON.parse(localStorage.getItem("ks-"+k))}catch(__){return null}}},
+  async set(k,v){try{const d=await this.open();await new Promise((res,rej)=>{const t=d.transaction("kv","readwrite");t.objectStore("kv").put(v,k);t.oncomplete=res;t.onerror=()=>rej(t.error)})}catch(_){localStorage.setItem("ks-"+k,JSON.stringify(v))}}
+};
+async function persist(){if(VIEW)return false;S.updated=Date.now();try{await store.set("state",S);return true}catch(_){return false}}
+
+function normalize(s){
+  s=s&&typeof s==="object"?s:{};
+  const tags=Array.isArray(s.tags)&&s.tags.length?s.tags:DEF_TAGS.map(t=>({...t}));
+  const cities=Array.isArray(s.cities)?s.cities:[];
+  const places=(Array.isArray(s.places)?s.places:[]).map(p=>({...p,tags:Array.isArray(p.tags)?p.tags:p.type?[p.type]:[],photos:Array.isArray(p.photos)?p.photos:p.photo?[p.photo]:[],rating:+p.rating||0,price:+p.price||0}));
+  return {theme:THEMES.some(t=>t[0]===s.theme)?s.theme:"sakura",tags,cities,places,updated:s.updated||0};
+}
+const tagOf=id=>S.tags.find(t=>t.id===id);
+const cityOf=id=>S.cities.find(c=>c.id===id);
+const inCity=id=>S.places.filter(p=>p.city===id).sort((a,b)=>(b.created||0)-(a.created||0));
+const route=()=>{const h=location.hash.slice(1);return h==="tags"&&!VIEW?{v:"tags"}:h.startsWith("c-")?{v:"city",id:h.slice(2)}:{v:"home"}};
+const plural=n=>{const a=n%10,b=n%100;return a===1&&b!==11?"место":a>=2&&a<=4&&(b<10||b>=20)?"места":"мест"};
+const stars=n=>n?"★".repeat(n)+"☆".repeat(5-n):"";
+const tagHTML=ids=>(ids||[]).map(tagOf).filter(Boolean).map(t=>`<span class="tag" style="--c:${col(t.color)}">${esc(t.name)}</span>`).join("");
+const uid=p=>p+Date.now().toString(36)+Math.random().toString(36).slice(2,5);
+
+function pinHTML(p){
+  const ph=pics(p),t=tagOf(p.tags[0]);
+  const pic=ph.length?`<div class="pic"><img src="${esc(ph[0])}" alt="" loading="lazy">${ph.length>1?`<span class="many">${ph.length} фото</span>`:""}</div>`:`<div class="ph ${p.nameKo?"ko":""}" style="--c:${t?col(t.color):"var(--accent)"}">${esc(p.nameKo||p.name)}</div>`;
+  return `<button class="pin" type="button" data-open="${esc(p.id)}">${pic}<div class="in">${p.visited?'<span class="seen">✓ была</span>':""}${tagHTML(p.tags.slice(0,2))}<h3>${esc(p.name)}</h3>${p.rating?`<div class="stars">${stars(p.rating)}</div>`:""}<p>${esc(p.what||p.why||"")}</p></div></button>`;
+}
+const tools=()=>`<div class="tools">${VIEW?"":`<button class="icon" type="button" data-go="tags" aria-label="Теги">${TAGI}</button>`}<button class="icon" type="button" data-settings aria-label="Настройки">${GEAR}</button></div>`;
+
+function renderHome(){
+  let h=`<div class="top"><div><h1>Корея: сохранёнки</h1><p class="sub">${S.places.length} ${plural(S.places.length)} · ${S.cities.length} городов</p></div>${tools()}</div>
+  <input class="search" id="q" type="search" placeholder="Поиск" value="${esc(query)}" aria-label="Поиск по всем местам">`;
+  if(query.trim()){
+    const q=query.trim().toLowerCase();
+    const r=S.places.filter(p=>[p.name,p.nameKo,p.what,p.why,p.address,p.district,p.notes,p.sourceLabel,cityOf(p.city)?.name,...p.tags.map(i=>tagOf(i)?.name)].join(" ").toLowerCase().includes(q));
+    h+=r.length?`<div class="wall">${r.map(pinHTML).join("")}</div>`:`<div class="empty-s">Ничего не нашлось</div>`;
+  }else if(!S.cities.length){h+=`<div class="empty-s">Пока нет ни одного города</div>`}
+  else{
+    h+=`<div class="albums">${S.cities.map(c=>{
+      const ps=inCity(c.id);let cov;
+      if(okImg(c.cover))cov=`<div class="cov one"><img src="${esc(c.cover)}" alt="" loading="lazy"></div>`;
+      else{const ph=ps.map(p=>pics(p)[0]).filter(Boolean).slice(0,3);
+        cov=ph.length?`<div class="cov">${[0,1,2].map(i=>`<div>${ph[i]?`<img src="${esc(ph[i])}" alt="" loading="lazy">`:""}</div>`).join("")}</div>`:`<div class="cov empty ko">${esc(c.ko||c.name)}</div>`}
+      return `<a class="album" href="#c-${esc(c.id)}">${cov}<b>${esc(c.name)}</b><span>${ps.length} ${plural(ps.length)}</span></a>`;
+    }).join("")}</div>`;
+  }
+  app.innerHTML=h;fab.hidden=VIEW;fab.textContent="+ Город";fab.dataset.act="city";
+  document.getElementById("q").addEventListener("input",e=>{query=e.target.value;const pos=e.target.selectionStart;render();const n=document.getElementById("q");n.focus();try{n.setSelectionRange(pos,pos)}catch(_){}});
+}
+
+function renderCity(id){
+  const c=cityOf(id);
+  if(!c){app.innerHTML=`<button class="back" type="button" data-go="">← Все города</button><div class="empty-s">Такого города нет</div>`;fab.hidden=true;return}
+  const all=inCity(id),ps=filter==="all"?all:filter==="seen"?all.filter(p=>p.visited):all.filter(p=>p.tags.includes(filter));
+  app.innerHTML=`<button class="back" type="button" data-go="">← Все города</button>
+  ${okImg(c.cover)?`<div class="cityhero"><img src="${esc(c.cover)}" alt=""></div>`:""}
+  <div class="top"><div><h1>${esc(c.name)} <span class="ko" style="color:var(--accentd)">${esc(c.ko||"")}</span></h1><p class="sub">${all.length} ${plural(all.length)}</p></div>${VIEW?"":`<div class="tools"><button class="ghost" type="button" data-editcity>Изменить</button></div>`}</div>
+  <div class="chips" role="group" aria-label="Фильтр по тегам"><button class="chip ${filter==="all"?"on":""}" data-f="all" type="button">Все</button>${S.tags.map(t=>`<button class="chip ${filter===t.id?"on":""}" data-f="${esc(t.id)}" type="button">${esc(t.name)} · ${all.filter(p=>p.tags.includes(t.id)).length}</button>`).join("")}<button class="chip ${filter==="seen"?"on":""}" data-f="seen" type="button">✓ Была</button></div>
+  ${ps.length?`<div class="wall">${ps.map(pinHTML).join("")}</div>`:`<div class="empty-s">${all.length?"Здесь пусто":"Мест пока нет"}</div>`}`;
+  fab.hidden=VIEW;fab.textContent="+ Место";fab.dataset.act="place";
+}
+
+function renderTags(editId){
+  const used=id=>S.places.filter(p=>p.tags.includes(id)).length;
+  app.innerHTML=`<button class="back" type="button" data-go="">← Все города</button>
+  <div class="top"><div><h1>Теги</h1><p class="sub">${S.tags.length} тегов</p></div></div>
+  <form class="panel" id="tf" data-id="${esc(editId||"")}"><label>${editId?"Изменить тег":"Новый тег"}<input id="tn" value="${esc(editId?tagOf(editId)?.name:"")}" maxlength="30"></label>
+  <span class="flab">Цвет</span><div class="swatches">${Object.keys(COLORS).map(k=>`<button type="button" data-sw="${k}" style="--c:${COLORS[k]}" class="${(editId?tagOf(editId)?.color:"violet")===k?"on":""}" aria-label="${k}"></button>`).join("")}</div>
+  <div class="err" id="terr"></div><div class="row"><button class="btn" type="submit">${editId?"Сохранить":"Добавить"}</button>${editId?`<button class="ghost" type="button" data-tcancel>Отмена</button>`:""}</div></form>
+  <div class="list">${S.tags.map(t=>`<div class="trow" style="--c:${col(t.color)}"><span class="dot"></span><span class="nm">${esc(t.name)}<span class="ct" style="display:block;font-weight:400">${used(t.id)} ${plural(used(t.id))}</span></span><button class="ghost" type="button" data-tedit="${esc(t.id)}">Изменить</button><button class="ghost" type="button" data-tdel="${esc(t.id)}">Удалить</button></div>`).join("")||`<div class="empty-s">Тегов нет</div>`}</div>`;
+  fab.hidden=true;
+  const f=document.getElementById("tf");f.dataset.color=editId?tagOf(editId)?.color||"violet":"violet";
+  f.addEventListener("submit",async e=>{e.preventDefault();const n=document.getElementById("tn").value.trim(),er=document.getElementById("terr");
+    if(!n){er.textContent="Впишите название тега";return}
+    if(S.tags.some(t=>t.name.toLowerCase()===n.toLowerCase()&&t.id!==f.dataset.id)){er.textContent="Такой тег уже есть";return}
+    if(f.dataset.id)S.tags=S.tags.map(t=>t.id===f.dataset.id?{...t,name:n,color:f.dataset.color}:t);else S.tags=[...S.tags,{id:uid("t"),name:n,color:f.dataset.color}];
+    await persist();renderTags()});
+}
+
+function render(){stopSlides();const r=route();applyTheme();r.v==="tags"?renderTags():r.v==="city"?renderCity(r.id):renderHome()}
+function applyTheme(){document.documentElement.dataset.g=S.theme}
+
+function stopSlides(){if(slideT){clearInterval(slideT);slideT=null}}
+function startSlides(){
+  const sl=document.getElementById("sl");if(!sl)return;const n=sl.children.length,dots=[...document.querySelectorAll("#dots i")];
+  const rm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const tick=()=>{const i=(Math.round(sl.scrollLeft/sl.clientWidth)+1)%n;sl.scrollTo({left:i*sl.clientWidth,behavior:rm?"auto":"smooth"})};
+  const go=()=>{stopSlides();slideT=setInterval(tick,3500)};
+  sl.addEventListener("scroll",()=>{const i=Math.round(sl.scrollLeft/sl.clientWidth);dots.forEach((d,k)=>d.classList.toggle("on",k===i))},{passive:true});
+  sl.addEventListener("pointerdown",go);sl.addEventListener("touchstart",go,{passive:true});go();
+}
+
+function openPlace(id){
+  const p=S.places.find(x=>x.id===id);if(!p)return;
+  const ph=pics(p),c=cityOf(p.city),t=tagOf(p.tags[0]),a=encodeURIComponent(p.address||p.nameKo||p.name),site=okUrl(p.site),src=okUrl(p.source);
+  const hero=ph.length>1?`<div class="slides" id="sl">${ph.map(u=>`<img src="${esc(u)}" alt="">`).join("")}</div><div class="dots" id="dots">${ph.map((_,i)=>`<i class="${i?"":"on"}"></i>`).join("")}</div>`
+    :ph.length?`<div class="slides"><img src="${esc(ph[0])}" alt=""></div>`:`<div class="ph ko" style="--c:${t?col(t.color):"var(--accent)"};padding:60px 20px;font-size:30px">${esc(p.nameKo||p.name)}</div>`;
+  const fact=(l,v)=>v?`<div><b>${l}</b>${esc(v)}</div>`:"";
+  const facts=[fact("Район",p.district),fact("Цена",p.price?PRICE[p.price]:""),fact("Часы работы",p.hours),fact("Сколько времени",p.duration),fact("Лучшее время",p.bestTime)].join("");
+  sheet.innerHTML=`<div class="close"><button type="button" data-close aria-label="Закрыть">×</button></div>${hero}
+  <div class="body">${tagHTML(p.tags)} <span style="color:var(--soft);font-size:14px">${esc(c?.name||"")}</span>
+  <h2>${esc(p.name)}</h2>${p.nameKo?`<div class="ko" style="color:var(--soft)">${esc(p.nameKo)}</div>`:""}
+  ${p.rating?`<div class="stars" style="font-size:20px;margin-top:4px">${stars(p.rating)}</div>`:""}
+  ${p.address?`<div class="field"><div class="lbl">Адрес</div><div class="addr"><span class="ko">${esc(p.address)}</span><button class="ghost" type="button" data-copy>Копировать</button></div></div>`:""}
+  <div class="row"><a href="https://map.naver.com/p/search/${a}" target="_blank" rel="noopener">Naver Map</a><a href="https://map.kakao.com/link/search/${a}" target="_blank" rel="noopener">KakaoMap</a></div>
+  ${facts?`<div class="facts">${facts}</div>`:""}
+  ${p.what?`<div class="field"><div class="lbl">Что это</div>${esc(p.what)}</div>`:""}
+  ${p.why?`<div class="field"><div class="lbl">Почему туда надо</div>${esc(p.why)}</div>`:""}
+  ${p.notes?`<div class="field"><div class="lbl">Заметки</div>${esc(p.notes)}</div>`:""}
+  ${site?`<div class="field lnk"><div class="lbl">Сайт</div><a href="${esc(site)}" target="_blank" rel="noopener">${esc(site)}</a></div>`:""}
+  ${p.source||p.sourceLabel?`<div class="field lnk"><div class="lbl">Где нашла</div>${src?`<a href="${esc(src)}" target="_blank" rel="noopener">${esc(p.sourceLabel||src)}</a>`:esc(p.sourceLabel||p.source)}</div>`:""}
+  ${VIEW?"":`<div class="row" style="margin-top:22px"><button class="ghost" type="button" data-seen>${p.visited?"✓ Была":"Отметить: была"}</button><button class="ghost" type="button" data-edit>Изменить</button><button class="ghost" type="button" data-del>Удалить</button></div><div class="err" id="perr"></div>`}</div>`;
+  sheet.dataset.id=id;show();startSlides();
+}
+
+function openPlaceForm(p){
+  const r=route(),cur=p?{...p}:{city:r.id||S.cities[0]?.id||"",tags:[],photos:[],rating:0,price:0};
+  draft={tags:[...cur.tags],photos:[...cur.photos],rating:cur.rating||0,price:cur.price||0};
+  const inp=(id,l,v,cls="")=>`<label>${l}<input id="${id}" class="${cls}" value="${esc(v)}"></label>`;
+  const ta=(id,l,v)=>`<label>${l}<textarea id="${id}">${esc(v)}</textarea></label>`;
+  sheet.innerHTML=`<div class="close"><button type="button" data-close aria-label="Закрыть">×</button></div>
+  <form class="body" id="pf" novalidate><h2>${p?"Изменить место":"Новое место"}</h2>
+  <label>Город<select id="fc">${S.cities.map(c=>`<option value="${esc(c.id)}" ${c.id===cur.city?"selected":""}>${esc(c.name)}</option>`).join("")}</select></label>
+  <span class="flab">Теги</span><div class="pick" id="tp"></div>
+  ${inp("fn","Название",cur.name)}${inp("fk","Название по-корейски",cur.nameKo,"ko")}
+  <span class="flab">Оценка</span><div class="pick starpick" id="sp"></div>
+  ${inp("fa","Адрес (лучше на корейском)",cur.address,"ko")}${inp("fd","Район",cur.district)}
+  ${ta("fw","Что это",cur.what)}${ta("fy","Почему туда надо",cur.why)}
+  <span class="flab">Цена</span><div class="pick" id="pp"></div>
+  ${inp("fh","Часы работы",cur.hours)}${inp("ft","Сколько времени нужно",cur.duration)}${inp("fb","Лучшее время",cur.bestTime)}
+  ${inp("fsi","Сайт или инстаграм (ссылка)",cur.site)}${inp("fs","Где нашла: ссылка",cur.source)}${inp("fl","Где нашла: подпись",cur.sourceLabel)}
+  ${ta("fo","Заметки",cur.notes)}
+  <span class="flab">Фото</span><div class="thumbs" id="th"></div>
+  <label>Добавить фото с телефона<input id="fp" type="file" accept="image/*" multiple></label>
+  <label>Добавить фото по ссылке (по одной на строку)<textarea id="fu"></textarea></label>
+  <div class="err" id="ferr"></div>
+  <div class="row"><button class="btn" type="submit" id="fsave">Сохранить</button><button class="ghost" type="button" data-close>Отмена</button></div></form>`;
+  sheet.dataset.id=p?.id||"";show();drawDraft();
+  document.getElementById("fp").addEventListener("change",async e=>{const er=document.getElementById("ferr");er.textContent="Обрабатываю фото…";
+    try{for(const f of e.target.files)draft.photos.push(await shrink(f));er.textContent=""}catch(_){er.textContent="Не получилось прочитать фото"}e.target.value="";drawDraft()});
+  document.getElementById("pf").addEventListener("submit",savePlace);
+}
+function drawDraft(){
+  const tp=document.getElementById("tp");if(!tp)return;
+  tp.innerHTML=S.tags.map(t=>`<button type="button" class="tg ${draft.tags.includes(t.id)?"on":""}" data-dt="${esc(t.id)}" style="--c:${col(t.color)}">${esc(t.name)}</button>`).join("")||`<span style="color:var(--soft);font-size:14px">Тегов нет, добавьте их на странице тегов</span>`;
+  document.getElementById("sp").innerHTML=[1,2,3,4,5].map(n=>`<button type="button" data-ds="${n}" aria-label="${n} из 5">${n<=draft.rating?"★":"☆"}</button>`).join("");
+  document.getElementById("pp").innerHTML=PRICE.map((l,i)=>`<button type="button" data-dp="${i}" class="${draft.price===i?"on":""}">${i?l.split(" ")[0]:"—"}</button>`).join("").replace("—","нет");
+  document.getElementById("th").innerHTML=draft.photos.map((u,i)=>`<div><img src="${esc(okImg(u))}" alt=""><button type="button" data-dx="${i}" aria-label="Убрать фото">×</button></div>`).join("")||`<span style="color:var(--soft);font-size:14px">Фото пока нет</span>`;
+}
+
+async function shrink(file){
+  const bmp=await createImageBitmap(file);const k=Math.min(1,1200/Math.max(bmp.width,bmp.height));
+  const cv=document.createElement("canvas");cv.width=Math.round(bmp.width*k);cv.height=Math.round(bmp.height*k);
+  cv.getContext("2d").drawImage(bmp,0,0,cv.width,cv.height);return cv.toDataURL("image/jpeg",0.8);
+}
+
+async function savePlace(e){
+  e.preventDefault();
+  const v=id=>document.getElementById(id)?.value.trim()||"",er=document.getElementById("ferr");er.textContent="";
+  if(!v("fn")){er.textContent="Впишите название места";return}
+  for(const [id,l] of [["fsi","Сайт"],["fs","Ссылка на источник"]])if(v(id)&&!okUrl(v(id))){er.textContent=l+": ссылка должна начинаться с https://";return}
+  const extra=v("fu").split(/\s+/).filter(Boolean);
+  if(extra.some(u=>!okImg(u))){er.textContent="Ссылка на фото должна вести на картинку";return}
+  const id=sheet.dataset.id,old=S.places.find(p=>p.id===id)||{};
+  const body={...old,id:id||uid("p"),city:document.getElementById("fc").value,tags:draft.tags.filter(tagOf),name:v("fn"),nameKo:v("fk"),rating:draft.rating,address:v("fa"),district:v("fd"),what:v("fw"),why:v("fy"),price:draft.price,hours:v("fh"),duration:v("ft"),bestTime:v("fb"),site:v("fsi"),source:v("fs"),sourceLabel:v("fl"),notes:v("fo"),photos:[...draft.photos,...extra],visited:!!old.visited,created:old.created||Date.now()};
+  const prev=S.places;S.places=id?S.places.map(p=>p.id===id?body:p):[...S.places,body];
+  if(!await persist()){S.places=prev;er.textContent="Не хватает памяти браузера. Уберите часть фото.";return}
+  hide();render();openPlace(body.id);
+}
+
+function openCityForm(c){
+  draft={cover:c?.cover||""};
+  sheet.innerHTML=`<div class="close"><button type="button" data-close aria-label="Закрыть">×</button></div>
+  <form class="body" id="cf" novalidate><h2>${c?"Изменить город":"Новый город"}</h2>
+  <label>Название<input id="cn" value="${esc(c?.name)}"></label>
+  <label>По-корейски (для обложки)<input id="ck" class="ko" value="${esc(c?.ko)}"></label>
+  <span class="flab">Обложка</span><div class="thumbs" id="cth"></div>
+  <label>Фото города (обложка и вид в шапке)<input id="cp" type="file" accept="image/*"></label>
+  <div class="err" id="cerr"></div>
+  <div class="row"><button class="btn" type="submit">Сохранить</button><button class="ghost" type="button" data-close>Отмена</button>${c?`<button class="ghost" type="button" data-cdel>Удалить город</button>`:""}</div></form>`;
+  sheet.dataset.id=c?.id||"";show();drawCover();
+  document.getElementById("cp").addEventListener("change",async e=>{if(e.target.files[0]){try{draft.cover=await shrink(e.target.files[0])}catch(_){}}drawCover()});
+  document.getElementById("cf").addEventListener("submit",async e=>{e.preventDefault();const n=document.getElementById("cn").value.trim(),er=document.getElementById("cerr");
+    if(!n){er.textContent="Впишите название города";return}
+    const id=sheet.dataset.id,body={id:id||uid("c"),name:n,ko:document.getElementById("ck").value.trim(),cover:draft.cover,order:id?cityOf(id).order:S.cities.length+1};
+    S.cities=id?S.cities.map(x=>x.id===id?body:x):[...S.cities,body];
+    if(!await persist()){er.textContent="Не хватает памяти браузера";return}hide();location.hash=id?location.hash:"c-"+body.id;render()});
+}
+function drawCover(){const el=document.getElementById("cth");if(el)el.innerHTML=okImg(draft.cover)?`<div><img src="${esc(draft.cover)}" alt=""><button type="button" data-cx aria-label="Убрать обложку">×</button></div>`:`<span style="color:var(--soft);font-size:14px">Без обложки: соберётся из фото мест</span>`}
+
+function openSettings(msg){
+  sheet.innerHTML=`<div class="close"><button type="button" data-close aria-label="Закрыть">×</button></div><div class="body"><h2>Настройки</h2>
+  <span class="flab">Тема</span><div class="themes">${THEMES.map(([k,n])=>`<button type="button" data-theme="${k}" class="${S.theme===k?"on":""}"><i style="background:${GR[k]}"></i><span>${n}</span></button>`).join("")}</div>
+  ${VIEW?"":`<span class="flab">Данные</span><p style="margin:4px 0 0;font-size:14px;color:var(--soft)">${S.cities.length} городов, ${S.places.length} ${plural(S.places.length)}, ${S.tags.length} тегов. Экспорт сохраняет файл data.json для сайта.</p>
+  <div class="row"><button class="btn" type="button" data-export>Экспорт</button><button class="ghost" type="button" data-import>Импорт</button><button class="ghost" type="button" data-fromsite>Загрузить с сайта</button></div>
+  <div class="row"><a href="view.html" target="_blank" rel="noopener">Открыть публичную страницу (view.html)</a></div>
+  <div id="impq"></div><div class="err" id="serr">${esc(msg||"")}</div>`}</div>`;
+  sheet.dataset.id="";show();
+}
+function exportData(){
+  const name="data.json";
+  const url=URL.createObjectURL(new Blob([JSON.stringify({app:"korea-saves",version:2,...S})],{type:"application/json"}));
+  const a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),5000);
+}
+let pending=null;
+function askImport(d){
+  try{if(!d||!Array.isArray(d.places)||!Array.isArray(d.cities))throw 0;pending=normalize(d);
+    document.getElementById("impq").innerHTML=`<div class="panel" style="margin-top:14px"><p>В файле ${pending.cities.length} городов и ${pending.places.length} ${plural(pending.places.length)}.</p><div class="row"><button class="btn" type="button" data-imp="merge">Добавить к моим</button><button class="ghost" type="button" data-imp="replace">Заменить всё</button></div></div>`}
+  catch(_){document.getElementById("serr").textContent="Это не файл экспорта сохранёнок"}
+}
+imp.addEventListener("change",async e=>{const f=e.target.files[0];e.target.value="";if(!f)return;let d=null;try{d=JSON.parse(await f.text())}catch(_){}askImport(d)});
+function merge(a,b){const m=new Map(a.map(x=>[x.id,x]));b.forEach(x=>m.set(x.id,x));return [...m.values()]}
+
+function show(){veil.hidden=false;document.body.style.overflow="hidden";sheet.scrollTop=0}
+function hide(){stopSlides();veil.hidden=true;document.body.style.overflow="";sheet.innerHTML="";draft=null}
+
+document.addEventListener("click",async e=>{
+  const t=e.target.closest("button,a");if(!t)return;const d=t.dataset;
+  if(d.open){openPlace(d.open);return}
+  if(d.go!==undefined){location.hash=d.go;return}
+  if("settings" in d){openSettings();return}
+  if(d.f){filter=d.f;render();return}
+  if("close" in d){hide();return}
+  if(d.theme){S.theme=d.theme;applyTheme();if(VIEW){try{localStorage.setItem("ks-theme",d.theme)}catch(_){}}else await persist();openSettings();return}
+  if(VIEW)return;
+  if("fromsite" in d){const er=document.getElementById("serr");er.textContent="Загружаю…";try{const r=await fetch("data.json",{cache:"no-store"});if(!r.ok)throw 0;er.textContent="";askImport(await r.json())}catch(_){er.textContent="На сайте пока нет data.json"}return}
+  if("export" in d){exportData();return}
+  if("import" in d){imp.click();return}
+  if(d.imp&&pending){S=d.imp==="replace"?{...pending}:{theme:S.theme,tags:merge(S.tags,pending.tags),cities:merge(S.cities,pending.cities),places:merge(S.places,pending.places)};
+    const ok=await persist();pending=null;render();openSettings(ok?"Импорт готов":"Не хватает памяти браузера");return}
+  if(d.sw){const f=document.getElementById("tf");f.dataset.color=d.sw;f.querySelectorAll("[data-sw]").forEach(b=>b.classList.toggle("on",b===t));return}
+  if(d.tedit){renderTags(d.tedit);document.getElementById("tn").focus();return}
+  if("tcancel" in d){renderTags();return}
+  if(d.tdel){if(d.sure!=="1"){d.sure="1";t.textContent="Точно?";t.style.color="var(--accentd)";return}
+    S.tags=S.tags.filter(x=>x.id!==d.tdel);S.places=S.places.map(p=>({...p,tags:p.tags.filter(i=>i!==d.tdel)}));await persist();renderTags();return}
+  if(draft){
+    if(d.dt){draft.tags=draft.tags.includes(d.dt)?draft.tags.filter(x=>x!==d.dt):[...draft.tags,d.dt];drawDraft();return}
+    if(d.ds){const n=+d.ds;draft.rating=draft.rating===n?0:n;drawDraft();return}
+    if(d.dp){draft.price=+d.dp;drawDraft();return}
+    if(d.dx){draft.photos.splice(+d.dx,1);drawDraft();return}
+    if("cx" in d){draft.cover="";drawCover();return}
+  }
+  if("editcity" in d){openCityForm(cityOf(route().id));return}
+  if("cdel" in d){if(d.sure!=="1"){d.sure="1";t.textContent="Удалить вместе с местами?";t.style.color="var(--accentd)";return}
+    const id=sheet.dataset.id;S.cities=S.cities.filter(c=>c.id!==id);S.places=S.places.filter(p=>p.city!==id);await persist();hide();location.hash="";render();return}
+  const id=sheet.dataset.id,p=S.places.find(x=>x.id===id);if(!p)return;
+  if("copy" in d){try{await navigator.clipboard.writeText(p.address);t.textContent="Скопировано"}catch(_){t.textContent="Выделите адрес вручную"}return}
+  if("edit" in d){stopSlides();openPlaceForm(p);return}
+  if("seen" in d){p.visited=!p.visited;await persist();render();openPlace(id);return}
+  if("del" in d){if(d.sure!=="1"){d.sure="1";t.textContent="Точно удалить?";t.style.color="var(--accentd)";return}
+    S.places=S.places.filter(x=>x.id!==id);await persist();hide();render()}
+});
+fab.addEventListener("click",()=>fab.dataset.act==="city"?openCityForm(null):openPlaceForm(null));
+veil.addEventListener("click",e=>{if(e.target===veil)hide()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!veil.hidden)hide()});
+window.addEventListener("hashchange",()=>{filter="all";hide();render();scrollTo(0,0)});
+
+(async()=>{
+  if(VIEW){
+    try{const r=await fetch("data.json",{cache:"no-store"});if(!r.ok)throw 0;S=normalize(await r.json())}
+    catch(_){app.innerHTML='<h1>Корея: сохранёнки</h1><div class="empty-s" style="margin-top:20px">Не получилось загрузить места. Обновите страницу чуть позже.</div>';return}
+    try{const t=localStorage.getItem("ks-theme");if(THEMES.some(x=>x[0]===t))S.theme=t}catch(_){}
+    render();return;
+  }
+  let saved=null;try{saved=await store.get("state")}catch(_){}
+  if(saved)S=normalize(saved);
+  else{try{S=normalize(JSON.parse(document.getElementById("seed").textContent))}catch(_){S=normalize({})}await persist()}
+  render();
+})();
+}
+</script>
+</body>
+</html>
